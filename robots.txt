@@ -1,0 +1,11 @@
+# Vogue District — robots.txt
+# Allow shopping agents and search engines to crawl the storefront,
+# but keep the admin panel and checkout flow out of search results.
+
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /checkout.html
+Disallow: /cart.html
+
+Sitemap: https://your-domain.example/sitemap.xml
