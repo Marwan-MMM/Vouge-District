@@ -450,7 +450,7 @@ var VD_DEMO_DATA = (function () {
     base_price: 124.00, sale_price: null,
     is_featured: true, is_best_seller: true,
     images: [
-      { url: 'p11-atlas-merino-sweater.jpg', alt: 'Atlas Merino Crew Sweater in oatmeal worn by a model' }
+      { url: './p11-atlas-merino-sweater.jpg', alt: 'Atlas Merino Crew Sweater in oatmeal worn by a model' }
     ],
     colors: [
       { name: 'Oatmeal', hex: '#E0D6BF' },
