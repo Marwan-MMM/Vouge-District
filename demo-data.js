@@ -175,15 +175,15 @@ var VD_DEMO_DATA = (function () {
      ====================================================================== */
 
   var categories = [
-    { id: 'c-women',            slug: 'women',            name: 'Women',              image_url: 'p02-aurelia-slip-dress.jpg' },
-    { id: 'c-men',              slug: 'men',              name: 'Men',                image_url: 'p13-bram-wool-coat.jpg' },
-    { id: 'c-dresses',          slug: 'dresses',          name: 'Dresses',            image_url: 'p01-sienna-wrap-dress.jpg' },
-    { id: 'c-tops-shirts',      slug: 'tops-shirts',      name: 'Tops & Shirts',      image_url: 'p07-noor-oversized-shirt.jpg' },
-    { id: 'c-trousers-jeans',   slug: 'trousers-jeans',   name: 'Trousers & Jeans',   image_url: 'p08-wren-trousers.jpg' },
-    { id: 'c-knitwear',         slug: 'knitwear',         name: 'Knitwear',           image_url: 'p04-celine-cashmere-cardigan.jpg' },
-    { id: 'c-outerwear',        slug: 'outerwear',        name: 'Outerwear',          image_url: 'p03-marlowe-linen-blazer.jpg' },
-    { id: 'c-shoes',            slug: 'shoes',            name: 'Shoes',              image_url: 'p17-juno-ankle-boots.jpg' },
-    { id: 'c-bags-accessories', slug: 'bags-accessories', name: 'Bags & Accessories', image_url: 'p09-talia-leather-tote.jpg' }
+    { id: 'c-women',            slug: 'women',            name: 'Women',              image_url: 'images/products/p02-aurelia-slip-dress.jpg' },
+    { id: 'c-men',              slug: 'men',              name: 'Men',                image_url: 'images/products/p13-bram-wool-coat.jpg' },
+    { id: 'c-dresses',          slug: 'dresses',          name: 'Dresses',            image_url: 'images/products/p01-sienna-wrap-dress.jpg' },
+    { id: 'c-tops-shirts',      slug: 'tops-shirts',      name: 'Tops & Shirts',      image_url: 'images/products/p07-noor-oversized-shirt.jpg' },
+    { id: 'c-trousers-jeans',   slug: 'trousers-jeans',   name: 'Trousers & Jeans',   image_url: 'images/products/p08-wren-trousers.jpg' },
+    { id: 'c-knitwear',         slug: 'knitwear',         name: 'Knitwear',           image_url: 'images/products/p04-celine-cashmere-cardigan.jpg' },
+    { id: 'c-outerwear',        slug: 'outerwear',        name: 'Outerwear',          image_url: 'images/products/p03-marlowe-linen-blazer.jpg' },
+    { id: 'c-shoes',            slug: 'shoes',            name: 'Shoes',              image_url: 'images/products/p17-juno-ankle-boots.jpg' },
+    { id: 'c-bags-accessories', slug: 'bags-accessories', name: 'Bags & Accessories', image_url: 'images/products/p09-talia-leather-tote.jpg' }
   ];
 
   /* ======================================================================
@@ -196,7 +196,7 @@ var VD_DEMO_DATA = (function () {
       slug: 'autumn-layers',
       name: 'Autumn Layers',
       description: 'Warm knits, tailored coats and leather — the pieces that carry you from the first cold morning to the last golden afternoon.',
-      image_url: 'campaign-1.jpg',
+      image_url: 'images/editorial/campaign-1.jpg',
       product_slugs: [
         'bram-tailored-wool-coat',
         'celine-cashmere-cardigan',
@@ -210,7 +210,7 @@ var VD_DEMO_DATA = (function () {
       slug: 'evening-edit',
       name: 'Evening Edit',
       description: 'Silk, rib and shine — a short list of pieces that turn an ordinary evening into an occasion.',
-      image_url: 'campaign-2.jpg',
+      image_url: 'images/editorial/campaign-2.jpg',
       product_slugs: [
         'aurelia-silk-slip-dress',
         'amara-ribbed-midi-dress',
@@ -224,7 +224,7 @@ var VD_DEMO_DATA = (function () {
       slug: 'everyday-essentials',
       name: 'Everyday Essentials',
       description: 'The hardworking staples behind every good outfit — shirts, knits and trousers made to be lived in.',
-      image_url: 'brand-story.jpg',
+      image_url: 'images/editorial/brand-story.jpg',
       product_slugs: [
         'livia-ribbed-knit-top',
         'noor-oversized-cotton-shirt',
@@ -251,7 +251,7 @@ var VD_DEMO_DATA = (function () {
     base_price: 128.00, sale_price: null,
     is_featured: true, is_best_seller: true,
     images: [
-      { url: 'p01-sienna-wrap-dress.jpg', alt: 'Sienna Belted Wrap Dress in camel worn by a model' }
+      { url: 'images/products/p01-sienna-wrap-dress.jpg', alt: 'Sienna Belted Wrap Dress in camel worn by a model' }
     ],
     colors: [
       { name: 'Camel', hex: '#B8814F' },
@@ -271,7 +271,7 @@ var VD_DEMO_DATA = (function () {
     base_price: 148.00, sale_price: 112.00,
     is_featured: true,
     images: [
-      { url: 'p02-aurelia-slip-dress.jpg', alt: 'Aurelia Silk Slip Dress in ivory worn by a model' }
+      { url: 'images/products/p02-aurelia-slip-dress.jpg', alt: 'Aurelia Silk Slip Dress in ivory worn by a model' }
     ],
     colors: [
       { name: 'Ivory', hex: '#F1EAD8' },
@@ -291,7 +291,7 @@ var VD_DEMO_DATA = (function () {
     base_price: 186.00, sale_price: null,
     is_new_arrival: true,
     images: [
-      { url: 'p03-marlowe-linen-blazer.jpg', alt: 'Marlowe Linen Blazer in sand worn by a model' }
+      { url: 'images/products/p03-marlowe-linen-blazer.jpg', alt: 'Marlowe Linen Blazer in sand worn by a model' }
     ],
     colors: [
       { name: 'Sand',  hex: '#D6C7A9' },
@@ -311,8 +311,8 @@ var VD_DEMO_DATA = (function () {
     base_price: 164.00, sale_price: null,
     is_featured: true, is_best_seller: true,
     images: [
-      { url: 'p04-celine-cashmere-cardigan.jpg', alt: 'Celine Cashmere Cardigan in oat worn by a model' },
-      { url: 'campaign-2.jpg', alt: 'Editorial: oat cashmere cardigan styled with an ivory silk slip dress' }
+      { url: 'images/products/p04-celine-cashmere-cardigan.jpg', alt: 'Celine Cashmere Cardigan in oat worn by a model' },
+      { url: 'images/editorial/campaign-2.jpg', alt: 'Editorial: oat cashmere cardigan styled with an ivory silk slip dress' }
     ],
     colors: [
       { name: 'Oat',      hex: '#D9CDB4' },
@@ -331,7 +331,7 @@ var VD_DEMO_DATA = (function () {
     category_slug: 'women',
     base_price: 98.00, sale_price: 79.00,
     images: [
-      { url: 'p05-odette-pleated-skirt.jpg', alt: 'Odette Pleated Midi Skirt in champagne worn by a model' }
+      { url: 'images/products/p05-odette-pleated-skirt.jpg', alt: 'Odette Pleated Midi Skirt in champagne worn by a model' }
     ],
     colors: [
       { name: 'Champagne', hex: '#E4D3B2' },
@@ -351,7 +351,7 @@ var VD_DEMO_DATA = (function () {
     base_price: 64.00, sale_price: null,
     is_new_arrival: true,
     images: [
-      { url: 'p06-livia-ribbed-top.jpg', alt: 'Livia Ribbed Knit Top in cream worn by a model' }
+      { url: 'images/products/p06-livia-ribbed-top.jpg', alt: 'Livia Ribbed Knit Top in cream worn by a model' }
     ],
     colors: [
       { name: 'Cream',    hex: '#F2ECDD' },
@@ -370,7 +370,7 @@ var VD_DEMO_DATA = (function () {
     category_slug: 'tops-shirts',
     base_price: 84.00, sale_price: null,
     images: [
-      { url: 'p07-noor-oversized-shirt.jpg', alt: 'Noor Oversized Cotton Shirt in white worn by a model' }
+      { url: 'images/products/p07-noor-oversized-shirt.jpg', alt: 'Noor Oversized Cotton Shirt in white worn by a model' }
     ],
     colors: [
       { name: 'White', hex: '#FAFAF7' },
@@ -390,7 +390,7 @@ var VD_DEMO_DATA = (function () {
     base_price: 112.00, sale_price: null,
     is_best_seller: true,
     images: [
-      { url: 'p08-wren-trousers.jpg', alt: 'Wren High-Rise Wide-Leg Trousers in black worn by a model' }
+      { url: 'images/products/p08-wren-trousers.jpg', alt: 'Wren High-Rise Wide-Leg Trousers in black worn by a model' }
     ],
     colors: [
       { name: 'Black', hex: '#201D1B' },
@@ -410,7 +410,7 @@ var VD_DEMO_DATA = (function () {
     base_price: 198.00, sale_price: 159.00,
     is_featured: true,
     images: [
-      { url: 'p09-talia-leather-tote.jpg', alt: 'Talia Leather Tote in tan standing on a stone plinth' }
+      { url: 'images/products/p09-talia-leather-tote.jpg', alt: 'Talia Leather Tote in tan standing on a stone plinth' }
     ],
     colors: [
       { name: 'Tan',   hex: '#B07B4F' },
@@ -430,7 +430,7 @@ var VD_DEMO_DATA = (function () {
     base_price: 136.00, sale_price: null,
     is_new_arrival: true,
     images: [
-      { url: 'p10-elena-knit-dress.jpg', alt: 'Elena Knit Midi Dress in mocha worn by a model' }
+      { url: 'images/products/p10-elena-knit-dress.jpg', alt: 'Elena Knit Midi Dress in mocha worn by a model' }
     ],
     colors: [
       { name: 'Mocha', hex: '#8A6A52' },
@@ -450,7 +450,7 @@ var VD_DEMO_DATA = (function () {
     base_price: 124.00, sale_price: null,
     is_featured: true, is_best_seller: true,
     images: [
-      { url: './p11-atlas-merino-sweater.jpg', alt: 'Atlas Merino Crew Sweater in oatmeal worn by a model' }
+      { url: 'images/products/p11-atlas-merino-sweater.jpg', alt: 'Atlas Merino Crew Sweater in oatmeal worn by a model' }
     ],
     colors: [
       { name: 'Oatmeal', hex: '#E0D6BF' },
@@ -470,7 +470,7 @@ var VD_DEMO_DATA = (function () {
     base_price: 92.00, sale_price: null,
     is_best_seller: true,
     images: [
-      { url: 'p12-rowan-oxford-shirt.jpg', alt: 'Rowan Oxford Shirt in white worn by a model' }
+      { url: 'images/products/p12-rowan-oxford-shirt.jpg', alt: 'Rowan Oxford Shirt in white worn by a model' }
     ],
     colors: [
       { name: 'White', hex: '#FAFAF7' },
@@ -490,8 +490,8 @@ var VD_DEMO_DATA = (function () {
     base_price: 286.00, sale_price: 229.00,
     is_featured: true,
     images: [
-      { url: 'p13-bram-wool-coat.jpg', alt: 'Bram Tailored Wool Coat in charcoal worn by a model' },
-      { url: 'campaign-1.jpg', alt: 'Editorial: tailored wool coat worn through a sunlit gallery' }
+      { url: 'images/products/p13-bram-wool-coat.jpg', alt: 'Bram Tailored Wool Coat in charcoal worn by a model' },
+      { url: 'images/editorial/campaign-1.jpg', alt: 'Editorial: tailored wool coat worn through a sunlit gallery' }
     ],
     colors: [
       { name: 'Charcoal', hex: '#3B3835' },
@@ -511,7 +511,7 @@ var VD_DEMO_DATA = (function () {
     base_price: 96.00, sale_price: null,
     is_new_arrival: true,
     images: [
-      { url: 'p14-hayes-chinos.jpg', alt: 'Hayes Relaxed Chinos in beige worn by a model' }
+      { url: 'images/products/p14-hayes-chinos.jpg', alt: 'Hayes Relaxed Chinos in beige worn by a model' }
     ],
     colors: [
       { name: 'Beige', hex: '#D6C7A9' },
@@ -530,7 +530,7 @@ var VD_DEMO_DATA = (function () {
     category_slug: 'tops-shirts',
     base_price: 108.00, sale_price: null,
     images: [
-      { url: 'p15-miles-knit-polo.jpg', alt: 'Miles Heavy Knit Polo in ecru worn by a model' }
+      { url: 'images/products/p15-miles-knit-polo.jpg', alt: 'Miles Heavy Knit Polo in ecru worn by a model' }
     ],
     colors: [
       { name: 'Ecru',    hex: '#EDE4D2' },
@@ -549,7 +549,7 @@ var VD_DEMO_DATA = (function () {
     category_slug: 'bags-accessories',
     base_price: 58.00, sale_price: null,
     images: [
-      { url: 'p16-colton-leather-belt.jpg', alt: 'Colton Leather Belt in brown coiled on an ivory surface' }
+      { url: 'images/products/p16-colton-leather-belt.jpg', alt: 'Colton Leather Belt in brown coiled on an ivory surface' }
     ],
     colors: [
       { name: 'Brown', hex: '#6E4A2E' },
@@ -569,7 +569,7 @@ var VD_DEMO_DATA = (function () {
     base_price: 214.00, sale_price: null,
     is_featured: true, is_best_seller: true,
     images: [
-      { url: 'p17-juno-ankle-boots.jpg', alt: 'Juno Leather Ankle Boots in black on a stone plinth' }
+      { url: 'images/products/p17-juno-ankle-boots.jpg', alt: 'Juno Leather Ankle Boots in black on a stone plinth' }
     ],
     colors: [
       { name: 'Black', hex: '#201D1B' },
@@ -590,7 +590,7 @@ var VD_DEMO_DATA = (function () {
     base_price: 178.00, sale_price: null,
     is_new_arrival: true,
     images: [
-      { url: 'p18-arlo-suede-loafers.jpg', alt: 'Arlo Suede Loafers in chestnut on an ivory surface' }
+      { url: 'images/products/p18-arlo-suede-loafers.jpg', alt: 'Arlo Suede Loafers in chestnut on an ivory surface' }
     ],
     colors: [
       { name: 'Chestnut', hex: '#8A5A3B' },
@@ -609,7 +609,7 @@ var VD_DEMO_DATA = (function () {
     category_slug: 'bags-accessories',
     base_price: 38.00, sale_price: null,
     images: [
-      { url: 'p19-vera-knit-beanie.jpg', alt: 'Vera Knit Beanie in camel resting on a stone block' }
+      { url: 'images/products/p19-vera-knit-beanie.jpg', alt: 'Vera Knit Beanie in camel resting on a stone block' }
     ],
     colors: [
       { name: 'Camel', hex: '#B8814F' },
@@ -629,7 +629,7 @@ var VD_DEMO_DATA = (function () {
     base_price: 142.00, sale_price: null,
     is_best_seller: true,
     images: [
-      { url: 'p20-soren-crossbody.jpg', alt: 'Soren Leather Crossbody in black against an ivory wall' }
+      { url: 'images/products/p20-soren-crossbody.jpg', alt: 'Soren Leather Crossbody in black against an ivory wall' }
     ],
     colors: [
       { name: 'Black', hex: '#201D1B' },
@@ -649,7 +649,7 @@ var VD_DEMO_DATA = (function () {
     base_price: 88.00, sale_price: null,
     is_new_arrival: true,
     images: [
-      { url: 'p21-idris-cashmere-scarf.jpg', alt: 'Idris Cashmere Scarf in camel draped over a wooden hanger' }
+      { url: 'images/products/p21-idris-cashmere-scarf.jpg', alt: 'Idris Cashmere Scarf in camel draped over a wooden hanger' }
     ],
     colors: [
       { name: 'Camel',    hex: '#B8814F' },
@@ -668,7 +668,7 @@ var VD_DEMO_DATA = (function () {
     category_slug: 'bags-accessories',
     base_price: 54.00, sale_price: null,
     images: [
-      { url: 'p22-nia-silk-scarf.jpg', alt: 'Nia Silk Scarf in terracotta and cream folded in a soft wave' }
+      { url: 'images/products/p22-nia-silk-scarf.jpg', alt: 'Nia Silk Scarf in terracotta and cream folded in a soft wave' }
     ],
     colors: [
       { name: 'Terracotta', hex: '#C17B5A' },
@@ -688,7 +688,7 @@ var VD_DEMO_DATA = (function () {
     base_price: 96.00, sale_price: null,
     is_new_arrival: true,
     images: [
-      { url: 'p23-delphine-tailored-vest.jpg', alt: 'Delphine Tailored Vest in ivory worn by a model' }
+      { url: 'images/products/p23-delphine-tailored-vest.jpg', alt: 'Delphine Tailored Vest in ivory worn by a model' }
     ],
     colors: [
       { name: 'Ivory', hex: '#F1EAD8' },
@@ -707,7 +707,7 @@ var VD_DEMO_DATA = (function () {
     category_slug: 'outerwear',
     base_price: 138.00, sale_price: null,
     images: [
-      { url: 'p24-quinn-denim-jacket.jpg', alt: 'Quinn Cropped Denim Jacket in ecru wash worn by a model' }
+      { url: 'images/products/p24-quinn-denim-jacket.jpg', alt: 'Quinn Cropped Denim Jacket in ecru wash worn by a model' }
     ],
     colors: [
       { name: 'Ecru Wash', hex: '#E3DCCB' },
@@ -727,7 +727,7 @@ var VD_DEMO_DATA = (function () {
     base_price: 118.00, sale_price: 94.00,
     is_best_seller: true,
     images: [
-      { url: 'p25-rubin-jeans.jpg', alt: 'Rubin Straight-Leg Jeans in mid wash worn by a model' }
+      { url: 'images/products/p25-rubin-jeans.jpg', alt: 'Rubin Straight-Leg Jeans in mid wash worn by a model' }
     ],
     colors: [
       { name: 'Mid Wash', hex: '#7E8CA0' },
@@ -747,7 +747,7 @@ var VD_DEMO_DATA = (function () {
     base_price: 118.00, sale_price: null,
     is_featured: true,
     images: [
-      { url: 'p26-amara-ribbed-dress.jpg', alt: 'Amara Ribbed Midi Dress in black worn by a model' }
+      { url: 'images/products/p26-amara-ribbed-dress.jpg', alt: 'Amara Ribbed Midi Dress in black worn by a model' }
     ],
     colors: [
       { name: 'Black',      hex: '#201D1B' },
@@ -767,7 +767,7 @@ var VD_DEMO_DATA = (function () {
     base_price: 146.00, sale_price: null,
     is_new_arrival: true,
     images: [
-      { url: 'p27-felix-quilted-overshirt.jpg', alt: 'Felix Quilted Overshirt in olive worn open by a model' }
+      { url: 'images/products/p27-felix-quilted-overshirt.jpg', alt: 'Felix Quilted Overshirt in olive worn open by a model' }
     ],
     colors: [
       { name: 'Olive', hex: '#6B6B4A' },
@@ -786,7 +786,7 @@ var VD_DEMO_DATA = (function () {
     category_slug: 'bags-accessories',
     base_price: 98.00, sale_price: null,
     images: [
-      { url: 'p28-selma-woven-clutch.jpg', alt: 'Selma Woven Leather Clutch in natural on ivory linen' }
+      { url: 'images/products/p28-selma-woven-clutch.jpg', alt: 'Selma Woven Leather Clutch in natural on ivory linen' }
     ],
     colors: [
       { name: 'Natural', hex: '#D6C7A9' },
@@ -806,7 +806,7 @@ var VD_DEMO_DATA = (function () {
     base_price: 132.00, sale_price: null,
     is_new_arrival: true,
     images: [
-      { url: 'p29-rhea-strap-flats.jpg', alt: 'Rhea Ankle Strap Flats in black on an ivory surface' }
+      { url: 'images/products/p29-rhea-strap-flats.jpg', alt: 'Rhea Ankle Strap Flats in black on an ivory surface' }
     ],
     colors: [
       { name: 'Black', hex: '#201D1B' },
@@ -826,7 +826,7 @@ var VD_DEMO_DATA = (function () {
     base_price: 132.00, sale_price: null,
     is_best_seller: true,
     images: [
-      { url: 'p30-owen-half-zip.jpg', alt: 'Owen Merino Half-Zip in camel worn by a model' }
+      { url: 'images/products/p30-owen-half-zip.jpg', alt: 'Owen Merino Half-Zip in camel worn by a model' }
     ],
     colors: [
       { name: 'Camel', hex: '#B8814F' },
