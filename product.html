@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product — Vogue District</title>
+  <meta name="description" content="Product details — Vogue District, modern fashion thoughtfully curated.">
+  <!-- SOCIAL SHARING — replace example URLs with the real domain before going live -->
+  <meta property="og:title" content="Vogue District — Product">
+  <meta property="og:description" content="Product details — Vogue District, modern fashion thoughtfully curated.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Page-local helper (the one style not covered by style.css): a short
+       shake animation product.js plays on a size/colour group when it is
+       required but still unselected at "Add to cart". */
+    @keyframes vd-shake {
+      0%, 100% { transform: translateX(0); }
+      20%      { transform: translateX(-5px); }
+      40%      { transform: translateX(5px); }
+      60%      { transform: translateX(-3px); }
+      80%      { transform: translateX(3px); }
+    }
+    .is-shaking { animation: vd-shake 0.4s ease; }
+  </style>
+</head>
+<body data-page="product">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div id="site-header"></div>
+
+  <main id="main">
+
+    <div class="container">
+      <nav class="breadcrumbs" id="breadcrumbs" aria-label="Breadcrumb">
+        <!-- filled by product.js -->
+      </nav>
+
+      <!-- ==============================================================
+           PRODUCT DETAIL — gallery + info. Every block below is filled
+           in by product.js from the data layer (VD.api.getProductBySlug).
+           ============================================================== -->
+      <section class="product-detail" id="product-detail" aria-label="Product details" aria-busy="true">
+
+        <div class="product-gallery">
+          <div class="product-gallery__main" id="product-gallery-main"></div>
+          <div class="product-gallery__thumbs" id="product-gallery-thumbs"></div>
+        </div>
+
+        <div class="product-info">
+          <p class="product-info__cat" id="product-cat"></p>
+          <h1 class="product-info__title" id="product-title"></h1>
+          <p class="product-info__price" id="product-price"></p>
+          <p class="product-info__sku" id="product-sku"></p>
+          <p class="stock-note" id="product-stock" role="status"></p>
+
+          <div class="option-group" id="option-colors" role="group" aria-labelledby="color-label" tabindex="-1" hidden>
+            <p class="eyebrow" id="color-label">Colour</p>
+            <div class="color-swatches" id="color-swatches"></div>
+          </div>
+
+          <div class="option-group" id="option-sizes" role="group" aria-labelledby="size-label" tabindex="-1" hidden>
+            <div style="display:flex;align-items:baseline;justify-content:space-between;gap:0.75rem;">
+              <p class="eyebrow" id="size-label">Size</p>
+              <button type="button" class="size-guide-link text-link" id="size-guide-open">Size guide</button>
+            </div>
+            <div class="size-buttons" id="size-buttons"></div>
+          </div>
+
+          <div class="option-group" id="qty-input" role="group" aria-labelledby="qty-label" hidden>
+            <p class="eyebrow" id="qty-label">Quantity</p>
+            <div class="qty-stepper">
+              <button type="button" id="qty-minus" aria-label="Decrease quantity">−</button>
+              <span id="qty-value" aria-live="polite">1</span>
+              <button type="button" id="qty-plus" aria-label="Increase quantity">+</button>
+            </div>
+          </div>
+
+          <div class="product-actions">
+            <button type="button" class="button button--dark" id="add-to-cart" disabled>Add to cart</button>
+            <button type="button" class="button button--outline" id="wishlist-toggle" aria-pressed="false">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21s-6.7-4.6-9.3-8.5C.8 9.6 2.1 5.9 5.4 5.1c1.9-.4 3.9.3 5.1 1.9l1.5 2 1.5-2c1.2-1.6 3.2-2.3 5.1-1.9 3.3.8 4.6 4.5 2.7 7.4C18.7 16.4 12 21 12 21z"/></svg>
+              <span id="wishlist-label">Add to wishlist</span>
+            </button>
+          </div>
+          <p class="form-note" id="selection-note" role="alert" hidden></p>
+
+          <div class="product-accordion">
+            <details class="accordion-item" id="accordion-description" open>
+              <summary class="accordion-item__summary">Description</summary>
+              <div class="accordion-item__content">
+                <p id="accordion-description-body"></p>
+              </div>
+            </details>
+            <details class="accordion-item" id="accordion-details">
+              <summary class="accordion-item__summary">Details &amp; care</summary>
+              <div class="accordion-item__content">
+                <p id="accordion-details-body"></p>
+              </div>
+            </details>
+            <details class="accordion-item" id="accordion-shipping">
+              <summary class="accordion-item__summary">Shipping &amp; returns</summary>
+              <div class="accordion-item__content">
+                <!-- EDIT: replace with your store's real shipping & returns policy -->
+                <p>Orders are prepared and dispatched within 1–2 business days. Complimentary standard
+                  delivery applies to orders over $150, with express delivery available at checkout.</p>
+                <p>Returns are accepted within 30 days of delivery — items unworn, with tags attached.
+                  Refunds are issued to the original payment method.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==============================================================
+           RELATED PRODUCTS — hidden until product.js fills the grid
+           ============================================================== -->
+      <section class="section related" id="related-section" hidden aria-labelledby="related-title">
+        <div class="section__head">
+          <div>
+            <p class="eyebrow">Complete the look</p>
+            <h2 class="section__title" id="related-title">You may also like</h2>
+          </div>
+        </div>
+        <div class="product-grid" id="related-grid"></div>
+      </section>
+    </div>
+
+    <!-- ================================================================
+         ERROR STATE — unknown or hidden product (shown by product.js)
+         ================================================================ -->
+    <section class="section product-error" id="product-error" hidden>
+      <div class="container">
+        <p class="empty-note empty-note--error">We couldn't find that product.</p>
+        <p>It may have sold out, been unpublished by the store, or the link may be out of date.</p>
+        <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:1.5rem;">
+          <a class="button button--dark" href="shop.html">Back to shop</a>
+          <a class="button button--outline" href="index.html">Home</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+  <!-- ================================================================
+       SIZE GUIDE MODAL — static reference table, opened by product.js
+       ================================================================ -->
+  <div class="modal" id="size-guide-modal" role="dialog" aria-modal="true" aria-labelledby="size-guide-title" hidden>
+    <div class="modal__panel">
+      <button type="button" class="icon-button" data-modal-close aria-label="Close size guide">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <h2 class="modal__title" id="size-guide-title">Size guide</h2>
+      <!-- EDIT: adjust the measurements to match your garments -->
+      <table class="size-guide-table">
+        <thead>
+          <tr>
+            <th scope="col">Size</th>
+            <th scope="col">Chest (cm)</th>
+            <th scope="col">Waist (cm)</th>
+            <th scope="col">Hip (cm)</th>
+            <th scope="col">Chest (in)</th>
+            <th scope="col">Waist (in)</th>
+            <th scope="col">Hip (in)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">XS</th><td>82–86</td><td>64–68</td><td>90–94</td><td>32–34</td><td>25–27</td><td>35–37</td></tr>
+          <tr><th scope="row">S</th><td>88–92</td><td>70–74</td><td>96–100</td><td>35–36</td><td>28–29</td><td>38–39</td></tr>
+          <tr><th scope="row">M</th><td>96–100</td><td>76–80</td><td>102–106</td><td>38–39</td><td>30–31</td><td>40–42</td></tr>
+          <tr><th scope="row">L</th><td>104–108</td><td>82–86</td><td>108–112</td><td>41–42</td><td>32–34</td><td>43–44</td></tr>
+          <tr><th scope="row">XL</th><td>110–114</td><td>88–92</td><td>114–118</td><td>43–45</td><td>35–36</td><td>45–46</td></tr>
+          <tr><th scope="row">XXL</th><td>116–120</td><td>94–98</td><td>120–124</td><td>46–47</td><td>37–39</td><td>47–49</td></tr>
+        </tbody>
+      </table>
+      <p class="form-note">Measurements are approximate and refer to body dimensions, not the garment.
+        Between sizes? We recommend sizing up.</p>
+    </div>
+  </div>
+
+  <!-- Shared scripts (order matters) -->
+  <script src="config.js" defer></script>
+  <script src="demo-data.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js" defer></script>
+  <script src="supabase.js" defer></script>
+  <script src="products.js" defer></script>
+  <script src="cart.js" defer></script>
+  <script src="wishlist.js" defer></script>
+  <script src="main.js" defer></script>
+  <script src="product.js" defer></script>
+</body>
+</html>

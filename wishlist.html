@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wishlist — Vogue District</title>
+  <meta name="description" content="The pieces you have saved for later at Vogue District — they stay on this device, no account needed.">
+  <meta property="og:title" content="Wishlist — Vogue District">
+  <meta property="og:description" content="Pieces you have saved for later — no account needed.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="wishlist">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div id="site-header"></div>
+
+  <main id="main">
+
+    <section class="page-hero">
+      <div class="container">
+        <h1 class="page-hero__title">Wishlist</h1>
+        <p class="page-hero__subtitle">Pieces you have saved for later — they stay on this device.</p>
+      </div>
+    </section>
+
+    <section id="wishlist-page" class="section" aria-label="Wishlist">
+      <div class="container">
+
+        <!-- Saved items — wishlist.js reveals this block, fills the count line
+             and renders the standard product cards into the grid -->
+        <div id="wishlist-content" hidden>
+          <div class="wishlist-actions">
+            <p id="wishlist-count-line" role="status"></p>
+            <button type="button" id="wishlist-clear" class="text-link">Clear wishlist</button>
+          </div>
+          <div id="wishlist-grid" class="product-grid" aria-live="polite"></div>
+        </div>
+
+        <!-- Empty state — wishlist.js reveals this panel when nothing is saved -->
+        <section id="wishlist-empty" class="empty-note" hidden aria-labelledby="wishlist-empty-title">
+          <svg class="empty-note__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21s-6.7-4.6-9.3-8.5C.8 9.6 2.1 5.9 5.4 5.1c1.9-.4 3.9.3 5.1 1.9l1.5 2 1.5-2c1.2-1.6 3.2-2.3 5.1-1.9 3.3.8 4.6 4.5 2.7 7.4C18.7 16.4 12 21 12 21z"/></svg>
+          <h2 id="wishlist-empty-title">Your wishlist is empty</h2>
+          <p>Tap the heart on any piece you love and it will be waiting for you here.</p>
+          <div class="empty-note__actions">
+            <a class="button button--dark" href="shop.html">Discover the collection</a>
+          </div>
+        </section>
+
+      </div>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+  <!-- Shared scripts (order matters) — wishlist.js hosts this page's controller -->
+  <script src="config.js" defer></script>
+  <script src="demo-data.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js" defer></script>
+  <script src="supabase.js" defer></script>
+  <script src="products.js" defer></script>
+  <script src="cart.js" defer></script>
+  <script src="wishlist.js" defer></script>
+  <script src="main.js" defer></script>
+</body>
+</html>

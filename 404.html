@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page not found — Vogue District</title>
+  <meta name="description" content="This page has left the rack. The link you followed is broken or the page has moved — head back to the Vogue District homepage or browse the shop.">
+  <!-- SOCIAL SHARING — replace example URLs with the real domain before going live -->
+  <meta property="og:title" content="Page not found — Vogue District">
+  <meta property="og:description" content="This page has left the rack — head back to the homepage or browse the shop.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/editorial/campaign-1.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<!--
+  404.html — GitHub Pages (and most other static hosts) serve this file
+  automatically whenever a visitor follows an unknown path, so dead links
+  land here instead of a bare server error. Keep the file name exactly
+  "404.html" for that to work.
+-->
+<body data-page="404">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div id="site-header"></div>
+
+  <main id="main">
+
+    <!-- ================================================================
+         ERROR PAGE — the giant "404" is decorative (aria-hidden); the
+         h1 carries the real message for screen readers.
+         ================================================================ -->
+    <section class="error-page" aria-labelledby="error-title">
+      <div class="container">
+        <p class="error-page__code" aria-hidden="true">404</p>
+        <h1 id="error-title" class="error-page__title">This page has left the rack</h1>
+        <p class="error-page__copy">The page you're looking for has been moved, renamed,
+          or was never hanging there in the first place. Let's get you back to the
+          good stuff.</p>
+
+        <div class="error-page__actions">
+          <a class="button button--dark" href="index.html">Back to homepage</a>
+          <a class="button button--outline" href="shop.html">Browse the shop</a>
+        </div>
+
+        <p class="error-page__links">Or try
+          <a class="text-link" href="collections.html">collections</a> and
+          <a class="text-link" href="wishlist.html">your wishlist</a>.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+  <!-- Shared scripts (order matters) — same skeleton as every other page so
+       the header, footer and announcement bar render identically here. -->
+  <script src="config.js" defer></script>
+  <script src="demo-data.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js" defer></script>
+  <script src="supabase.js" defer></script>
+  <script src="products.js" defer></script>
+  <script src="cart.js" defer></script>
+  <script src="wishlist.js" defer></script>
+  <script src="main.js" defer></script>
+</body>
+</html>

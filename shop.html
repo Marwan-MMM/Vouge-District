@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop all — Vogue District</title>
+  <meta name="description" content="Browse the full Vogue District edit — dresses, knitwear, outerwear, shoes and accessories. Filter by category, size, colour and price.">
+  <!-- SOCIAL SHARING — replace example URLs with the real domain before going live -->
+  <meta property="og:title" content="Shop all — Vogue District">
+  <meta property="og:description" content="Clothing, knitwear, outerwear, shoes and accessories — the full boutique edit.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/editorial/hero-main.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="shop">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div id="site-header"></div>
+
+  <main id="main">
+
+    <!-- ================================================================
+         PAGE HERO — the h1 + count are rewritten by shop.js for the
+         filtered views linked from the header/footer (new arrivals,
+         best sellers, sale, collections)
+         ================================================================ -->
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow" id="shop-hero-count" aria-hidden="true">Loading…</p>
+        <h1 id="shop-hero-title">Shop all</h1>
+        <p id="shop-hero-sub">Every piece in the current edit — filter by category, size, colour and price to find yours.</p>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="shop-layout">
+
+        <!-- ============================================================
+             FILTERS — sidebar on desktop, off-canvas drawer on mobile.
+             shop.js toggles .is-open on .filters + .filters-backdrop.
+             Category checkboxes / size chips / colour rows are injected
+             by shop.js from the loaded catalog.
+             ============================================================ -->
+        <aside class="filters" id="shop-filters" aria-label="Product filters">
+
+          <!-- Mobile drawer header (hidden on desktop by style.css) -->
+          <div class="filter-group" id="filters-head">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:0.5rem;">
+              <h2 class="filter-group__title">Filters</h2>
+              <button type="button" class="icon-button filters__close" data-filters-close aria-label="Close filters">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <h2 class="filter-group__title">Category</h2>
+            <div id="category-list"><!-- checkboxes with product counts injected by shop.js --></div>
+          </div>
+
+          <div class="filter-group">
+            <h2 class="filter-group__title">Size</h2>
+            <div id="size-list"><!-- size chips injected by shop.js --></div>
+          </div>
+
+          <div class="filter-group">
+            <h2 class="filter-group__title">Colour</h2>
+            <div id="color-list"><!-- colour rows (dot + name + count) injected by shop.js --></div>
+          </div>
+
+          <div class="filter-group">
+            <h2 class="filter-group__title">Price</h2>
+            <div class="price-filter">
+              <label class="sr-only" for="price-min">Minimum price</label>
+              <input type="number" class="input" id="price-min" placeholder="Min" min="0" step="1" inputmode="numeric">
+              <label class="sr-only" for="price-max">Maximum price</label>
+              <input type="number" class="input" id="price-max" placeholder="Max" min="0" step="1" inputmode="numeric">
+              <button type="button" class="button button--outline" id="price-apply">Apply</button>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <h2 class="filter-group__title">Availability</h2>
+            <label class="checkbox-row">
+              <input type="checkbox" id="filter-stock">
+              <span>In stock only</span>
+            </label>
+            <label class="checkbox-row">
+              <input type="checkbox" id="filter-sale">
+              <span>On sale</span>
+            </label>
+          </div>
+
+        </aside>
+        <div class="filters-backdrop" id="filters-backdrop" data-filters-close></div>
+
+        <!-- ============================================================
+             RESULTS — toolbar, active filter chips, grid, load more
+             ============================================================ -->
+        <div id="shop-main">
+
+          <div class="shop-toolbar">
+            <button type="button" class="filter-toggle" id="filter-toggle" aria-expanded="false" aria-controls="shop-filters">
+              Filters<span id="filter-toggle-count" aria-hidden="true"></span>
+            </button>
+            <p id="shop-results-count" role="status" aria-live="polite">Loading products…</p>
+            <div>
+              <label class="sr-only" for="shop-sort">Sort products</label>
+              <select class="select" id="shop-sort">
+                <option value="featured">Featured</option>
+                <option value="newest">Newest</option>
+                <option value="price-asc">Price: low to high</option>
+                <option value="price-desc">Price: high to low</option>
+                <option value="name">Name: A–Z</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="active-filters" id="active-filters" hidden><!-- removable chips injected by shop.js --></div>
+
+          <div class="product-grid shop-grid" id="shop-grid">
+            <!-- loading skeletons are injected by shop.js -->
+          </div>
+
+          <div class="load-more" id="load-more-wrap" hidden>
+            <button type="button" class="button button--outline" id="load-more">Load more</button>
+          </div>
+
+          <div class="shop-empty" id="shop-empty" hidden>
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 8h12l1 13H5L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+            <p id="shop-empty-text">No products match your filters.</p>
+            <button type="button" class="button button--outline" id="shop-empty-clear">Clear filters</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+  <!-- Shared scripts (order matters) -->
+  <script src="config.js" defer></script>
+  <script src="demo-data.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js" defer></script>
+  <script src="supabase.js" defer></script>
+  <script src="products.js" defer></script>
+  <script src="cart.js" defer></script>
+  <script src="wishlist.js" defer></script>
+  <script src="main.js" defer></script>
+  <script src="shop.js" defer></script>
+</body>
+</html>

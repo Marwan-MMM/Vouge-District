@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout — Vogue District</title>
+  <meta name="description" content="Complete your Vogue District order — delivery details, shipping method and payment, no account needed.">
+  <meta property="og:title" content="Checkout — Vogue District">
+  <meta property="og:description" content="Complete your order — delivery details, shipping method and payment.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="checkout">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div id="site-header"></div>
+
+  <main id="main">
+
+    <section class="page-hero">
+      <div class="container">
+        <h1 class="page-hero__title">Checkout</h1>
+        <p class="page-hero__subtitle">Delivery details, shipping method and payment — no account needed.</p>
+      </div>
+    </section>
+
+    <section id="checkout-page" class="section" aria-label="Checkout">
+      <div class="container">
+
+        <div id="checkout-layout" class="checkout-layout">
+
+          <!-- ============================================================
+               ORDER FORM — client validation lives in checkout.js; the
+               Supabase place_order function re-validates everything again.
+               ============================================================ -->
+          <form id="checkout-form" class="checkout-form" novalidate>
+
+            <div id="form-error-banner" class="form__error-banner" role="alert" hidden></div>
+
+            <fieldset class="fieldset-card">
+              <legend>Contact &amp; delivery</legend>
+              <!-- 2-column responsive field grid (1 column on mobile) -->
+              <div class="form-grid">
+
+                <div class="field">
+                  <label for="checkout-name">Full name</label>
+                  <input type="text" id="checkout-name" name="full_name" class="input" autocomplete="name" required>
+                  <span class="field__error" aria-live="polite"></span>
+                </div>
+
+                <div class="field">
+                  <label for="checkout-email">Email</label>
+                  <input type="email" id="checkout-email" name="email" class="input" autocomplete="email" required>
+                  <span class="field__error" aria-live="polite"></span>
+                </div>
+
+                <div class="field">
+                  <label for="checkout-phone">Phone</label>
+                  <input type="tel" id="checkout-phone" name="phone" class="input" autocomplete="tel" required>
+                  <span class="field__error" aria-live="polite"></span>
+                </div>
+
+                <div class="field">
+                  <label for="checkout-country">Country</label>
+                  <select id="checkout-country" name="country" class="select" autocomplete="country-name" required>
+                    <option value="" selected disabled>Select your country…</option>
+                    <option value="United States">United States</option>
+                    <option value="United Kingdom">United Kingdom</option>
+                    <option value="Canada">Canada</option>
+                    <option value="Australia">Australia</option>
+                    <option value="Germany">Germany</option>
+                    <option value="France">France</option>
+                    <option value="Italy">Italy</option>
+                    <option value="Spain">Spain</option>
+                    <option value="Netherlands">Netherlands</option>
+                    <option value="United Arab Emirates">United Arab Emirates</option>
+                    <option value="Saudi Arabia">Saudi Arabia</option>
+                    <option value="Egypt">Egypt</option>
+                    <option value="Other">Other</option>
+                  </select>
+                  <span class="field__error" aria-live="polite"></span>
+                </div>
+
+                <div class="field">
+                  <label for="checkout-city">City</label>
+                  <input type="text" id="checkout-city" name="city" class="input" autocomplete="address-level2" required>
+                  <span class="field__error" aria-live="polite"></span>
+                </div>
+
+                <div class="field">
+                  <label for="checkout-postal">Postal code</label>
+                  <input type="text" id="checkout-postal" name="postal_code" class="input" autocomplete="postal-code" required>
+                  <span class="field__error" aria-live="polite"></span>
+                </div>
+
+                <div class="field field--full">
+                  <label for="checkout-address">Address</label>
+                  <input type="text" id="checkout-address" name="address" class="input" autocomplete="street-address" required>
+                  <span class="field__error" aria-live="polite"></span>
+                </div>
+
+                <div class="field field--full">
+                  <label for="checkout-notes">Delivery notes (optional)</label>
+                  <textarea id="checkout-notes" name="notes" class="textarea" rows="4" maxlength="500" placeholder="Gate codes, preferred delivery time, gift message…"></textarea>
+                  <span class="field__error" aria-live="polite"></span>
+                </div>
+
+              </div>
+            </fieldset>
+
+            <fieldset class="fieldset-card">
+              <legend>Delivery method</legend>
+              <!-- Radio cards rendered by checkout.js from settings.shipping.methods
+                   (label + cost + eta, standard pre-selected) -->
+              <div id="shipping-options" class="checkout-shipping"></div>
+            </fieldset>
+
+            <fieldset class="fieldset-card">
+              <legend>Payment</legend>
+              <p class="form-note">This demo store does not process card payments — choose how you'd like to pay:</p>
+              <!-- Radio cards rendered by checkout.js from settings.payment_methods
+                   (label + note, first pre-selected) -->
+              <div id="payment-options" class="checkout-payment"></div>
+            </fieldset>
+
+            <fieldset class="fieldset-card">
+              <legend>Promo code</legend>
+              <!-- Same promo markup as the cart summary. It is a div (not a
+                   nested form) because fieldsets live inside #checkout-form and
+                   forms cannot be nested — checkout.js handles Apply + Enter. -->
+              <div class="promo-form">
+                <label class="sr-only" for="checkout-promo-input">Promo code</label>
+                <input type="text" id="checkout-promo-input" name="promo_code" class="input" placeholder="Promo code" autocomplete="off">
+                <button type="button" id="checkout-promo-apply" class="button button--dark">Apply</button>
+              </div>
+              <p id="checkout-promo-note" class="form-note" role="status"></p>
+            </fieldset>
+
+            <button type="submit" id="place-order" class="button button--dark checkout-submit">Place order</button>
+
+          </form>
+
+          <!-- ============================================================
+               ORDER SUMMARY — items + totals rendered by checkout.js
+               ============================================================ -->
+          <aside class="order-summary checkout-summary" aria-labelledby="checkout-summary-title">
+            <h2 id="checkout-summary-title">Your order</h2>
+            <div id="summary-items" aria-live="polite"></div>
+            <div id="summary-totals" aria-live="polite"></div>
+            <p class="summary-note">Taxes are included where applicable. Final totals are confirmed by the store when your order is placed.</p>
+          </aside>
+
+        </div>
+
+        <!-- ==============================================================
+             SUCCESS — checkout.js fills this once the server confirms the
+             order. Never shown without a real server response.
+             ============================================================== -->
+        <section id="order-success" class="order-success" hidden aria-labelledby="order-success-title">
+          <svg class="order-success__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg>
+          <h2 id="order-success-title" tabindex="-1">Thank you — your order is confirmed</h2>
+          <p id="success-order-number" class="order-success__number"></p>
+          <div id="success-summary" class="order-success__summary"></div>
+          <p class="order-success__copy">A confirmation email will be sent to <span id="success-email"></span>.</p>
+          <div class="order-success__actions">
+            <a class="button button--dark" href="shop.html">Continue shopping</a>
+          </div>
+        </section>
+
+        <!-- ==============================================================
+             DEMO / SETUP ERROR — shown only when Supabase is not configured
+             (VD.api.submitOrder resolves { ok:false, demo:true }). The form
+             stays on screen and the cart is preserved. Nothing is faked.
+             ============================================================== -->
+        <section id="checkout-demo-error" class="empty-note checkout-demo-error" hidden role="alert" aria-labelledby="checkout-demo-error-title">
+          <h2 id="checkout-demo-error-title">Order submission unavailable</h2>
+          <p>This store is not connected to Supabase yet (see <code>config.js</code>), so your order could not be submitted.
+            Nothing was charged and no order was created — <strong>your cart has been preserved</strong>.</p>
+          <p>To switch on real checkout:</p>
+          <ol class="checkout-demo-error__steps">
+            <li>Create a free project at <strong>supabase.com</strong>.</li>
+            <li>Run <code>supabase-schema.sql</code> (and optionally <code>supabase-seed.sql</code>) in the Supabase SQL editor.</li>
+            <li>Paste your project URL and publishable anon key into <code>config.js</code>.</li>
+            <li>Reload this page and place your order again.</li>
+          </ol>
+        </section>
+
+      </div>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+  <!-- Shared scripts (order matters) — checkout.js hosts this page's controller -->
+  <script src="config.js" defer></script>
+  <script src="demo-data.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js" defer></script>
+  <script src="supabase.js" defer></script>
+  <script src="products.js" defer></script>
+  <script src="cart.js" defer></script>
+  <script src="wishlist.js" defer></script>
+  <script src="main.js" defer></script>
+  <script src="checkout.js" defer></script>
+</body>
+</html>
