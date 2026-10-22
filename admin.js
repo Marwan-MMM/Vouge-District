@@ -1401,8 +1401,8 @@
     var img = m.images[index];
 
     if (!isStorageImage(img.url)) {
-      // Relative bundled path (e.g. images/products/…) — nothing in Storage
-      // to delete, just drop it from the list.
+      // Relative bundled file (e.g. p11-atlas-merino-sweater.jpg in the site
+      // root) — nothing in Storage to delete, just drop it from the list.
       m.images.splice(index, 1);
       renderThumbs();
       return;
@@ -1794,7 +1794,8 @@
       return (
         '<tr>' +
           '<td class="order-drawer__item-media">' +
-            '<img src="' + esc(item.image_url || 'images/placeholder.svg') + '" alt="" width="48" height="48" loading="lazy" ' +
+            // normalizeImageUrl: orders placed before the image-folder move keep working.
+            '<img src="' + esc(window.VD.api.normalizeImageUrl(item.image_url) || 'images/placeholder.svg') + '" alt="" width="48" height="48" loading="lazy" ' +
               'onerror="VD.utils.imgFallback(this)">' +
           '</td>' +
           '<td><span class="admin-table__primary">' + esc(item.product_name) + '</span></td>' +

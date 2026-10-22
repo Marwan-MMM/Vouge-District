@@ -180,7 +180,8 @@
       itemsEl.innerHTML = cart.items.map(function (item) {
         return (
           '<div class="summary-item">' +
-            '<img class="summary-item__thumb" src="' + esc(item.image) + '" alt="' + esc(item.name) + '"' +
+            // normalizeImageUrl: items added before the image-folder move keep working.
+            '<img class="summary-item__thumb" src="' + esc(window.VD.api.normalizeImageUrl(item.image)) + '" alt="' + esc(item.name) + '"' +
               ' width="48" height="48" loading="lazy" onerror="VD.utils.imgFallback(this)">' +
             '<div class="summary-item__info">' +
               '<p class="summary-item__name">' + esc(item.name) + '</p>' +
