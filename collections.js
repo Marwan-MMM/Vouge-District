@@ -34,7 +34,7 @@
     var SHORTCUT_CARDS = [
       {
         href: 'shop.html?tag=new-arrivals',
-        image: 'images/editorial/campaign-2.jpg',
+        image: 'campaign-2.jpg',
         alt: 'Model seated in a linen armchair wearing an oat cashmere cardigan',
         name: 'New arrivals',
         description: 'The latest pieces to land on the rail — fresh in this week.',
@@ -42,7 +42,7 @@
       },
       {
         href: 'shop.html?tag=best-sellers',
-        image: 'images/products/p17-juno-ankle-boots.jpg',
+        image: 'p17-juno-ankle-boots.jpg',
         alt: 'Pair of black leather ankle boots',
         name: 'Best sellers',
         description: 'The pieces our customers keep coming back for, season after season.',
@@ -50,7 +50,7 @@
       },
       {
         href: 'shop.html?sale=1',
-        image: 'images/products/p13-bram-wool-coat.jpg',
+        image: 'p13-bram-wool-coat.jpg',
         alt: 'Man wearing a charcoal wool overcoat',
         name: 'Sale',
         description: 'Reduced prices on selected styles — while stock lasts.',
