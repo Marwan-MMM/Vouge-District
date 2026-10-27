@@ -39,8 +39,8 @@ window.VOGUE_CONFIG = {
      panel and cross-device persistence stay disabled. */
 
   supabase: {
-    url:            'YOUR_SUPABASE_PROJECT_URL',            // e.g. https://abcdefgh.supabase.co
-    publishableKey: 'YOUR_SUPABASE_PUBLISHABLE_ANON_KEY',   // e.g. eyJhbGciOi...
+    url:            'https://gpymmjfsyjietrzzltgk.supabase.co',            // e.g. https://abcdefgh.supabase.co
+    publishableKey: 'sb_publishable_4P-rXe_PWrkPvMRRaanqag_he5255pr',   // e.g. eyJhbGciOi...
   },
 
   /* ------------------------------------------------------------------------
