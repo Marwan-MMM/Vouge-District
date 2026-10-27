@@ -34,7 +34,7 @@
     var SHORTCUT_CARDS = [
       {
         href: 'shop.html?tag=new-arrivals',
-        image: 'images/editorial/campaign-2.jpg',
+        image: 'campaign-2.jpg',
         alt: 'Model seated in a linen armchair wearing an oat cashmere cardigan',
         name: 'New arrivals',
         description: 'The latest pieces to land on the rail — fresh in this week.',

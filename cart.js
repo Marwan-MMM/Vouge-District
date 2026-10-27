@@ -296,8 +296,7 @@
         return (
           '<article class="cart-line" data-variant="' + esc(String(item.variant_id)) + '">' +
             '<a class="cart-line__media" href="product.html?slug=' + encodeURIComponent(item.slug) + '">' +
-              // normalizeImageUrl: items added before the image-folder move keep working.
-              '<img src="' + esc(window.VD.api.normalizeImageUrl(item.image)) + '" alt="' + esc(item.name) + '" loading="lazy" onerror="VD.utils.imgFallback(this)">' +
+              '<img src="' + esc(item.image) + '" alt="' + esc(item.name) + '" loading="lazy" onerror="VD.utils.imgFallback(this)">' +
             '</a>' +
             '<div class="cart-line__info">' +
               '<h3 class="cart-line__name"><a href="product.html?slug=' + encodeURIComponent(item.slug) + '">' + esc(item.name) + '</a></h3>' +

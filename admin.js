@@ -670,7 +670,7 @@
   function productRowHTML(product) {
     return (
       '<tr data-product-id="' + esc(product.id) + '" tabindex="0" aria-label="Edit ' + esc(product.name) + '">' +
-        '<td class="admin-table__thumb"><img src="' + esc(product.cover_image || 'images/placeholder.svg') + '" alt="" ' +
+        '<td class="admin-table__thumb"><img src="' + esc(product.cover_image || 'placeholder.svg') + '" alt="" ' +
           'width="44" height="44" loading="lazy" onerror="VD.utils.imgFallback(this)"></td>' +
         '<td><span class="admin-table__primary">' + esc(product.name) + '</span>' +
           '<span class="admin-table__sub">/' + esc(product.slug) + '</span></td>' +
@@ -1401,8 +1401,8 @@
     var img = m.images[index];
 
     if (!isStorageImage(img.url)) {
-      // Relative bundled file (e.g. p11-atlas-merino-sweater.jpg in the site
-      // root) — nothing in Storage to delete, just drop it from the list.
+      // Relative bundled path (e.g. images/products/…) — nothing in Storage
+      // to delete, just drop it from the list.
       m.images.splice(index, 1);
       renderThumbs();
       return;
@@ -1600,7 +1600,7 @@
       is_best_seller: !!m.flags.bestSeller,
       is_demo: false,
       demo_batch_id: null,
-      cover_image: m.images.length ? m.images[0].url : 'images/placeholder.svg',
+      cover_image: m.images.length ? m.images[0].url : 'placeholder.svg',
       images: m.images,
       colors: colors,
       sizes: sizes,
@@ -1794,8 +1794,7 @@
       return (
         '<tr>' +
           '<td class="order-drawer__item-media">' +
-            // normalizeImageUrl: orders placed before the image-folder move keep working.
-            '<img src="' + esc(window.VD.api.normalizeImageUrl(item.image_url) || 'images/placeholder.svg') + '" alt="" width="48" height="48" loading="lazy" ' +
+            '<img src="' + esc(item.image_url || 'images/placeholder.svg') + '" alt="" width="48" height="48" loading="lazy" ' +
               'onerror="VD.utils.imgFallback(this)">' +
           '</td>' +
           '<td><span class="admin-table__primary">' + esc(item.product_name) + '</span></td>' +

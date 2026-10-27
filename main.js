@@ -236,11 +236,11 @@
           '</div>' +
         '</div>' +
         '<div class="site-footer__bottom">' +
-          '<div class="container site-footer__bottom-inner">' +
+          /*'<div class="container site-footer__bottom-inner">' +
             '<p>© <span data-footer-year>2025</span> ' + utils.esc(brand.name) + '. All rights reserved.</p>' +
             '<p class="site-footer__note">Built as a portfolio template — see README.md to make it yours.</p>' +
-          '</div>' +
-        '</div>' +
+          '</div>' +*/
+        '</div>' + 
       '</footer>'
     );
   }
@@ -248,12 +248,12 @@
   function demoBannerHTML() {
     return (
       '<div class="demo-banner" role="status">' +
-        '<div class="container demo-banner__inner">' +
+        /*'<div class="container demo-banner__inner">' +
           '<p><strong>Local demo mode.</strong> Supabase is not connected yet, so you are browsing the bundled demo catalog. ' +
           'Orders, contact messages, the admin panel and cross-device persistence switch on once you add your project URL + key to <code>config.js</code>.</p>' +
           '<a class="demo-banner__link" href="admin.html">Setup guide</a>' +
           '<button type="button" class="demo-banner__close" aria-label="Dismiss demo notice" data-demo-dismiss>' + ICONS.close + '</button>' +
-        '</div>' +
+        '</div>' + */
       '</div>'
     );
   }

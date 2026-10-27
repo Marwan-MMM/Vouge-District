@@ -91,49 +91,13 @@
   }
   api.esc = esc;
 
-  /* --------------------------------------------------------------------
-     IMAGE URL NORMALIZER
-     The demo catalog originally bundled product photos inside
-     images/products/, but the folder was flattened into the site root for
-     GitHub Pages. Records written before that move — Supabase rows seeded
-     from an older supabase-seed.sql, demo data loaded into the database,
-     and line-item image snapshots saved in localStorage carts/orders —
-     still carry the old prefix.
-
-     This one helper is the SINGLE place that understands the legacy layout,
-     so every read path (and every renderer below) can call it and old
-     records keep working next to new ones:
-
-       • absolute URLs (https://…, //…, data:/blob:)  → untouched, so
-         Supabase Storage URLs and any external images are always preserved
-       • site-absolute paths (/images/…)              → untouched
-       • legacy 'images/products/<file>'              → '<file>' (site root)
-       • everything else (root filenames, images/editorial/…) → untouched
-     -------------------------------------------------------------------- */
-  var LEGACY_IMAGE_PREFIX = 'images/products/';
-
-  function normalizeImageUrl(url) {
-    var value = String(url == null ? '' : url);
-    if (!value) return '';
-    // Absolute URLs (Supabase Storage, CDNs, inline data) — never rewrite.
-    if (/^(https?:)?\/\//i.test(value) || /^(data|blob):/i.test(value) || value.charAt(0) === '/') {
-      return value;
-    }
-    // Legacy bundled folder → the same file now lives in the site root.
-    if (value.indexOf(LEGACY_IMAGE_PREFIX) === 0) {
-      return value.slice(LEGACY_IMAGE_PREFIX.length);
-    }
-    return value;
-  }
-  api.normalizeImageUrl = normalizeImageUrl;   // reused by cart/checkout/admin renders
-
   /* Map one database row (+ joined images/variants/category) to the product
      shape used everywhere in the frontend. */
   function mapProduct(row) {
     var images = (row.images || [])
       .slice()
       .sort(function (a, b) { return (a.sort_order || 0) - (b.sort_order || 0); })
-      .map(function (img) { return { url: normalizeImageUrl(img.url), alt: img.alt || row.name }; });
+      .map(function (img) { return { url: img.url, alt: img.alt || row.name }; });
 
     var variants = (row.variants || [])
       .filter(function (v) { return v.is_active !== false; })
@@ -189,7 +153,7 @@
       is_best_seller: !!row.is_best_seller,
       is_demo: !!row.is_demo,
       demo_batch_id: row.demo_batch_id || null,
-      cover_image: normalizeImageUrl(row.cover_image || (images[0] ? images[0].url : '')),
+      cover_image: row.cover_image || (images[0] ? images[0].url : ''),
       images: images,
       colors: colors,
       sizes: sizes,
@@ -311,13 +275,7 @@
       .then(function (_a) {
         var data = _a.data, error = _a.error;
         if (error) fail('Could not load categories: ' + error.message);
-        // normalizeImageUrl: rows seeded before the image-folder move keep working.
-        return (data || []).map(function (row) {
-          return {
-            id: row.id, slug: row.slug, name: row.name,
-            image_url: normalizeImageUrl(row.image_url)
-          };
-        });
+        return data || [];
       });
   };
 
@@ -335,9 +293,7 @@
         return (data || []).map(function (row) {
           return {
             id: row.id, slug: row.slug, name: row.name,
-            description: row.description || '',
-            // normalizeImageUrl: rows seeded before the image-folder move keep working.
-            image_url: normalizeImageUrl(row.image_url || ''),
+            description: row.description || '', image_url: row.image_url || '',
             product_slugs: (row.items || []).map(function (i) { return i.product && i.product.slug; }).filter(Boolean)
           };
         });
